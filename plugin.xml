@@ -22,9 +22,9 @@
 
     <!-- cordova -->
     <engines>
-        <engine name="cordova" version=">=3.0.0" />
-        <engine name="android-sdk" version=">=16" />
-        <engine name="windows-sdk" version=">=10.0.14393.0" />
+        <engine name="cordova" version="&gt;=3.0.0" />
+        <engine name="android-sdk" version="&gt;=16" />
+        <engine name="windows-sdk" version="&gt;=10.0.14393.0" />
     </engines>
 
     <!-- js -->
@@ -37,8 +37,7 @@
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="BackgroundMode">
-                <param name="ios-package" value="APPBackgroundMode" onload="true" />
-                <param name="onload" value="true" />
+                <param name="ios-package" value="APPBackgroundMode" />
             </feature>
         </config-file>
 
@@ -59,16 +58,15 @@
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="BackgroundMode">
-                <param name="android-package" value="de.appplant.cordova.plugin.background.BackgroundMode"/>
-            </feature>
-            <feature name="BackgroundModeExt">
-                <param name="android-package" value="de.appplant.cordova.plugin.background.BackgroundModeExt"/>
+            <feature name="BackgroundMode" >
+                <param name="android-package"
+                      value="de.appplant.cordova.plugin.background.BackgroundMode"/>
             </feature>
         </config-file>
 
         <config-file target="res/xml/config.xml" parent="/*">
             <preference name="KeepRunning" value="true" />
+            <preference name="AndroidLaunchMode" value="singleInstance"/>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
@@ -84,7 +82,7 @@
             target-dir="src/de/appplant/cordova/plugin/background" />
 
         <source-file
-            src="src/android/BackgroundModeExt.java"
+            src="src/android/BackgroundExt.java"
             target-dir="src/de/appplant/cordova/plugin/background" />
 
         <source-file
